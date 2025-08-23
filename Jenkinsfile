@@ -9,8 +9,10 @@ pipeline {
         stage('Build'){
             steps {
                 script{
+                    sh """
                     echo "Building"
                     env
+                    """
                 }
             }    
         }
