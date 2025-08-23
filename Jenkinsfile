@@ -20,11 +20,6 @@ pipeline {
                 echo "Deploy"
             }
         }
-        stage('Destroy'){
-            steps {
-                echo 'Destroy'
-            }
-        }
     }
     post {
         always {
