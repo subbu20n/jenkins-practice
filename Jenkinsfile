@@ -21,4 +21,16 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "I will say always Hello Again!"
+            deleteDir()
+        }
+        success {
+            echo "Hello Success"
+        }
+        failure {
+            echo "Hello Failure"
+        }
+    }
 }
