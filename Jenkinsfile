@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                      echo "Building"  
+                      echo "Building"   
                       sleep 10 
                       env
                       echo "Hello ${params.PERSON}"
