@@ -42,9 +42,9 @@ pipeline {
                 message "Should we continue?"
                 ok "Yes, we should"
                 submitter "alice,bob" 
-                parameters: [
+                parameters {
                     string(name: 'PERSON', defaultValue: 'false', description: 'who should i say hello to?')
-                ]
+                }
             }
             steps {
                 script {
