@@ -10,6 +10,7 @@ pipeline {
             steps {
                 script{
                     echo "Building"
+                    env
                 }
             }    
         }
