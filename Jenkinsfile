@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy'){
             input {
                 message "Should we continue?"
-                ok, "Yes, we should"
+                ok "Yes, we should"
                 submitter: "alice,bob" 
                 parameters: [
                     string(name: 'PERSON', defaultValue: 'false', description: 'who should i say hell to')
