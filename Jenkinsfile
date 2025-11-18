@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             echo "I will say hello again!" 
-            deleteDir()
+            /* deleteDir() */
         }
         success {
             echo "Hello Success"
