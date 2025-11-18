@@ -30,7 +30,7 @@ pipeline {
                       env 
                       echo "Hello ${params.PERSON}" 
                     """   
-                } 
+                }  
             }
         } 
         stage ('Test') {
