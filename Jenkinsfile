@@ -95,4 +95,18 @@ pipeline {
         }
     }
 
+    post{
+        always{
+            deleteDir() 
+            echo "hello i will always say hello again"
+        }
+        success {
+            echo "hello SUCCESS"
+        }
+        failure{
+            echo "hello Failure"
+        }
+    }
+
 }
+
