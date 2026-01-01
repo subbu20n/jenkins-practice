@@ -103,7 +103,7 @@ pipeline {
                      echo "building.."
                      sleep 10
                      env
-                     echo "hello {params.PERSON}
+                     echo "hello {params.PERSON}"
                     """ 
                 }
                 
