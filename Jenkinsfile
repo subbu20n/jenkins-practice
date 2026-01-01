@@ -80,17 +80,26 @@ pipeline {
     stages{
         stage('Build'){
             steps{
-                echo "building.."
+                script{
+                     echo "building.."
+                }
+                
             }
         } 
         stage('Test'){
             steps{
-                echo "Testing.."
+                script{
+                      echo "Testing.."
+                }
+                
             }
         }
         stage('Deploy'){
             steps{
-                echo "Deploy.."
+                scritp{
+                       echo "Deploy.."
+                }
+               
             }
         }
     }
