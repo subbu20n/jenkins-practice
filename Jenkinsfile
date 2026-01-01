@@ -96,7 +96,7 @@ pipeline {
         }
         stage('Deploy'){
             steps{
-                scritp{
+                script{
                        echo "Deploy.."
                 }
                
