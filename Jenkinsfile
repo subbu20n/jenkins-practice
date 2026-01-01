@@ -75,7 +75,7 @@
 pipeline {
     agent any 
 
-    steps{
+    stages{
         stage('Build'){
             steps{
                 echo "building.."
