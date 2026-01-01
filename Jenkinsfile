@@ -101,7 +101,7 @@ pipeline {
                 script{
                     sh """
                      echo "building.."
-                     sleep
+                     sleep10
                      env
                      echo "hello {params.PERSON}
                     """ 
