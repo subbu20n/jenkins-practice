@@ -1,86 +1,12 @@
-// pipeline {
-//     agent {
-//         label 'AGENT-1'
-//     }
-//     environment {
-//         course = "jenkins"
-//     }
-//     options {
-//         timeout(time:30, unit: 'MINUTES')
-//         disableConcurrentBuilds()
-//     }
-//     parameters {
-//         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-
-//         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-
-//         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-//         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-//         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-//     }
-//     stages {
-//         stage ('Build') {
-//             steps {
-//                 script {
-//                     sh """
-//                       echo "Building.."
-//                       sleep 10 
-//                       env 
-//                       echo "Hello ${params.PERSON}" 
-//                     """   
-//                 }  
-//             }
-//         } 
-//         stage ('Test') {
-//             steps { 
-//                 script {
-//                   echo "Testing.."
-//                 } 
-//             }
-//         }
-//         stage ('Deploy') {
-//             input {
-//                 message "should we continue?" 
-//                 ok "yes we should"
-//                 submitter "alice,bob"
-//                 parameters {
-//                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-//                 }
-//             steps {
-//                 script {
-//                   echo "Hello $PERSON nice to meet you"
-//                   echo "Deploying.."
-//                 }   
-//             }
-//           }
-//     }
-//     post {
-//         always {
-//             echo "I will say hello again!" 
-//             /* deleteDir() */
-//         }
-//         success {
-//             echo "Hello Success"
-//         }
-//         failure {
-//             echo "Hello Failure"
-//         }
-//     }
-// }    
-
-
-
 pipeline {
     agent {
         label 'AGENT-1'
     }
-    environment{
-        course = 'Devops'
+    environment {
+        course = "jenkins"
     }
-    options{
-        timeout(time: 30 , unit: 'MINUTES')
+    options {
+        timeout(time:30, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
     parameters {
@@ -94,66 +20,55 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-
-    stages{
-        stage('Build'){
-            steps{
-                script{
+    stages {
+        stage ('Build') {
+            steps {
+                script {
                     sh """
-                     echo "building.."
-                     sleep 10
-                     env
-                     echo "hello {params.PERSON}"
-                    """ 
-                }
-                
+                      echo "Building.."
+                      sleep 10 
+                      env 
+                      echo "Hello ${params.PERSON}" 
+                    """   
+                }  
             }
         } 
-        stage('Test'){
-            steps{
-                script{
-                    sh """
-                      echo "Testing.."  
-                    """  
-                }
-                
+        stage ('Test') {
+            steps { 
+                script {
+                  echo "Testing.."
+                } 
             }
         }
-        stage('Deploy'){
-            input{
-                message"should we continue?"
+        stage ('Deploy') {
+            input {
+                message "should we continue?" 
                 ok "yes we should"
                 submitter "alice,bob"
-                 parameters {
+                parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                 }       
-    
-            }
-            steps{
-                script{
-                    sh """
-                    echo "hello ${PERSON}, nice to meet you"
-                       echo "Deploy.." 
-
-                    """   
                 }
-               
+            steps {
+                script {
+                  echo "Hello $PERSON nice to meet you"
+                  echo "Deploying.."
+                }   
             }
-        }
+          }
     }
-
-    post{
-        always{
-             deleteDir() 
-            echo "hello i will always say hello again"
+    post {
+        always {
+            echo "I will say hello again!" 
+            /* deleteDir() */
         }
         success {
-            echo "hello SUCCESS"
+            echo "Hello Success"
         }
-        failure{
-            echo "hello Failure"
+        failure {
+            echo "Hello Failure"
         }
     }
+}    
+
 
 }
-
