@@ -76,12 +76,18 @@ pipeline {
     agent {
         label 'AGENT-1'
     }
+    environment{
+        course = 'Devops'
+    }
 
     stages{
         stage('Build'){
             steps{
                 script{
+                    sh """
                      echo "building.."
+                     env
+                    """ 
                 }
                 
             }
@@ -89,7 +95,9 @@ pipeline {
         stage('Test'){
             steps{
                 script{
+                    sh """
                       echo "Testing.."
+                    """  
                 }
                 
             }
@@ -97,7 +105,9 @@ pipeline {
         stage('Deploy'){
             steps{
                 script{
+                    sh """
                        echo "Deploy.."
+                    """   
                 }
                
             }
