@@ -42,7 +42,7 @@ pipeline {
         }
         stage ('Deploy') {
             input {
-                message "should we continue?"    
+                message "should we continue?"      
                 ok "yes we should"
                 submitter "alice,bob"
                 parameters {
